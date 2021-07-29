@@ -1,0 +1,40 @@
+{
+  "editor.tabSize": 2, //制表符大小
+  "editor.formatOnSave": false, //每次保存自动格式化
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true, //让函数(名)和后面的括号之间加个空格
+  "workbench.editor.enablePreview": false, //打开文件不覆盖
+  /* prettier配置 */
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  /* eslint配置 */
+  "eslint.validate": [
+    // eslint开启对.vue文件中错误的检查
+    "typescript",
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
+  "editor.codeActionsOnSave": {
+    // 保存时使用eslint自动修复
+    "source.fixAll.eslint": true
+  },
+  "files.associations": {
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript"
+  },
+  "emmet.includeLanguages": {
+    "wxml": "html"
+  },
+  "minapp-vscode.disableAutoConfig": true,
+  "javascript.updateImportsOnFileMove.enabled": "always"
+}
