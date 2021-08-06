@@ -1,17 +1,21 @@
 <template>
-  <div class="">home</div>
+  <div class="">{{articleList}}</div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState} from 'vuex';
+import articleStoreModule from '@/store/modules/article';
 export default {
   name: 'home',
   asyncData ({ store, route }) {
-    // 触发 action 后，会返回 Promise
-    return store.dispatch('fetchItem', route.params.id)
+    store.registerModule('article', articleStoreModule);
+    return store.dispatch('article/getArticleList');
+  },
+  // 重要信息：当多次访问路由时，避免在客户端重复注册模块。
+  destroyed(){
+    this.$store.unregisterModule('article', articleStoreModule);
   },
   computed: {
-    // 从 store 的 state 对象中的获取 item。
-    ...mapState(''), // ???
+    ...mapState('article', ['articleList'])
   }
 };
 </script>

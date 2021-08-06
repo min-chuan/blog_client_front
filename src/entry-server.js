@@ -15,7 +15,7 @@ export default context => {
       const matchedComponents = router.getMatchedComponents()
       // 匹配不到的路由，执行 reject 函数，并返回 404
       if (!matchedComponents.length) {
-        return reject({ code: 404 })
+        context.throw(404, '访问的页面不存在')
       }
 
       // 对所有匹配的路由组件调用 `asyncData()`
@@ -34,7 +34,7 @@ export default context => {
         // 状态将自动序列化为 `window.__INITIAL_STATE__`，并注入 HTML。
         context.state = store.state
         resolve(app)
-      }).catch(reject)
+      })
     }, reject)
   })
 }

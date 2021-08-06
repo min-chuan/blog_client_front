@@ -3,7 +3,6 @@ import { Message } from 'element-ui';
 
 /* axios全局配置 */
 axios.defaults.timeout = 5000;
-axios.defaults.withCredentials = true; // 让axios发送请求的时候带上cookie
 
 /* axios请求拦截 */
 axios.interceptors.request.use(
